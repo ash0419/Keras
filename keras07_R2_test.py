@@ -10,12 +10,12 @@ y_test = np.array([11,12,13,14,15,16,17,18,19,20])
 
 model = Sequential()
 # model.add(Dense(40, input_dim=1, activation='relu'))
-model.add(Dense(500, input_shape=(1, ), activation='relu'))
-model.add(Dense(500))
-model.add(Dense(500))
-model.add(Dense(500))
-model.add(Dense(500))
-model.add(Dense(500))
+model.add(Dense(1000, input_shape=(1, ), activation='relu'))
+model.add(Dense(600))
+model.add(Dense(700))
+model.add(Dense(800))
+model.add(Dense(900))
+model.add(Dense(800))
 model.add(Dense(500))
 model.add(Dense(1))
 
@@ -48,4 +48,8 @@ print("R2 : ",r2_y_predict)
 # batch_size = 1
 # epochs = 100 이상
 
-# 컴퓨터를 과부하 시켜라
+# 컴퓨터를 과부하 시켜라(레이어와 노드 수를 많이 그리고 훈련 횟수를 많게)
+
+# 결과
+# RMSE :  9.940569015146664
+# R2 :  -10.977565132714417
