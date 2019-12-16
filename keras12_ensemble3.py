@@ -29,8 +29,6 @@ x2_val, x2_test = train_test_split(
     x2_test, random_state=66, test_size=0.5, shuffle = False
 )
 
-
-
 # 2.모델구성
 from keras.models import Sequential, Model
 from keras.layers import Dense, Input
