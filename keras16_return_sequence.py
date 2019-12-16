@@ -19,7 +19,7 @@ x_input = array([25,35,45])
 
 # 2. 모델 구성
 model = Sequential()
-model.add(LSTM(10, activation = 'relu', input_shape=(3,1), return_sequences=True)) # return_sequences는 출력 형상은 (none, 3, 노드개수)로 반환
+model.add(LSTM(10, activation = 'relu', input_shape=(3,1), return_sequences=True)) # return_sequences는 출력 형상을 (none, 3, 노드개수)로 반환
 model.add(LSTM(10, return_sequences=True))
 model.add(LSTM(10, return_sequences=True))
 model.add(LSTM(10, return_sequences=True))
