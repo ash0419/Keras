@@ -21,28 +21,36 @@ X_train = X_train.reshape(X_train.shape[0], 28, 28, 1).astype('float32') / 255
 #(60000, 28, 28, 1)
 X_test = X_test.reshape(X_test.shape[0], 28, 28, 1).astype('float32') / 255  
 
-x1_train = X_train[:30000, : , : , :]
-x2_train = X_train[30000:, : , : , :]
-x1_test = X_test[:5000, : , : , :]
-x2_test = X_test[5000:, : , : , :]
-
-# from sklearn.model_selection import train_test_split
-# x1_train, x2_train, x1_test, x2_test = train_test_split(
-#     X_train, X_test, train_size=0.5, shuffle=False
-# )
-# y1_train, y2_train, y1_test, y2_test = train_test_split(
-#     Y_train, Y_test, train_size=0.5, shuffle = False
-# )
-
-
-# One Hot Encoding : 단어 집합의 크기를 벡터의 차원으로 하고, 표현하고 싶은 단어의 인덱스에 1의 값을 부여하고, 
-# 다른 인덱스에는 0을 부여하는 단어의 벡터 표현 방식 to_categorical()
+# x1_train = X_train[:30000, : , : , :]
+# x2_train = X_train[30000:, : , : , :]
+# x1_test = X_test[:5000, : , : , :]
+# x2_test = X_test[5000:, : , : , :]
 Y_test = np_utils.to_categorical(Y_test)
 Y_train = np_utils.to_categorical(Y_train)  
-y1_train = Y_train[:30000,]
-y2_train = Y_train[30000:,]
-y1_test = Y_test[:5000,]
-y2_test = Y_test[5000:,]
+from sklearn.model_selection import train_test_split
+# 행 갯수가 동일한걸로 나눠야 한다.
+x1_train, x2_train, y1_train, y2_train = train_test_split(
+    X_train, Y_train, train_size=0.5, shuffle=False
+)
+x1_test, x2_test, y1_test, y2_test = train_test_split(
+    X_test, Y_test, train_size=0.5, shuffle = False
+)
+print(x1_test.shape)
+print(x2_test.shape)
+print(x1_train.shape)
+print(x2_train.shape)
+print(y1_test.shape)
+print(y2_test.shape)
+print(y1_train.shape)
+print(y2_train.shape)
+'''
+# One Hot Encoding : 단어 집합의 크기를 벡터의 차원으로 하고, 표현하고 싶은 단어의 인덱스에 1의 값을 부여하고, 
+# 다른 인덱스에는 0을 부여하는 단어의 벡터 표현 방식 to_categorical()
+
+# y1_train = Y_train[:30000,]
+# y2_train = Y_train[30000:,]
+# y1_test = Y_test[:5000,]
+# y2_test = Y_test[5000:,]
 # print(Y_train[0])
 # print(Y_train.shape)
 # print(Y_test.shape)
@@ -101,5 +109,5 @@ history = model.fit([x1_train, x2_train], [y1_train, y2_train], validation_data=
 # 테스트 정확도 출력
 print("\n Test Accuracy: %.4f" % (model.evaluate([x1_test, x2_test], [y1_test, y2_test])[1]))
 
-
+'''
 
