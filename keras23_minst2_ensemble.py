@@ -43,7 +43,7 @@ print(y1_test.shape)
 print(y2_test.shape)
 print(y1_train.shape)
 print(y2_train.shape)
-'''
+
 # One Hot Encoding : 단어 집합의 크기를 벡터의 차원으로 하고, 표현하고 싶은 단어의 인덱스에 1의 값을 부여하고, 
 # 다른 인덱스에는 0을 부여하는 단어의 벡터 표현 방식 to_categorical()
 
@@ -108,6 +108,3 @@ history = model.fit([x1_train, x2_train], [y1_train, y2_train], validation_data=
 
 # 테스트 정확도 출력
 print("\n Test Accuracy: %.4f" % (model.evaluate([x1_test, x2_test], [y1_test, y2_test])[1]))
-
-'''
-
